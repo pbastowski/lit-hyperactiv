@@ -1,20 +1,14 @@
 {
-  "name": "hyperactiv-tests",
-  "version": "1.0.0",
-  "description": "This is a static template with no bundling",
-  "main": "index.html",
-  "scripts": {
-    "build": "echo \"no build required\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/codesandbox-app/static-template.git"
-  },
-  "keywords": [],
-  "author": "Ives van Hoorne",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/codesandbox-app/static-template/issues"
-  },
-  "homepage": "https://github.com/codesandbox-app/static-template#readme"
+    "name": "hyperactiv-tests",
+    "version": "1.0.0",
+    "description": "This is a static template with no bundling. Use 'serve', 'live-server' or some other http server to serve the content.",
+    "main": "index.html",
+    "scripts": {
+        "start": "serve",
+        "build": "echo \"no build required\"",
+        "install-packages-locally": "npm i lit-html hyperactiv easyrouter"
+    },
+    "keywords": [],
+    "author": "Paul Bastowski",
+    "license": "MIT"
 }
