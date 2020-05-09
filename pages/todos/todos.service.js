@@ -1,21 +1,22 @@
 import http from '/src/http.js'
-const TODOS_URL = 'https://pb-todos.glitch.me/api/todos'
+// const TODOS_URL = 'https://pb-todos.glitch.me/api/todos'
+const TODOS_URL = 'http://localhost:3030'
 
 http.baseUrl = TODOS_URL
 
 export function fetchTasks() {
-    return http.get()
+    return http.get('/todos?_sort=id&_order=desc')
     // return fetch(TODOS_URL).then(d => d.json())
 }
 
 export function addTask(task) {
-    return http.post('', task).then(d => ({ ...task, id: d.id }))
+    return http.post('/todos', task).then((d) => ({ ...task, id: d.id }))
 }
 
 export function deleteTask(task) {
-    return http.delete('/' + task.id)
+    return http.delete('/todos/' + task.id)
 }
 
 export function updateTask(task) {
-    return http.put('/' + task.id, task)
+    return http.put('/todos/' + task.id, task)
 }

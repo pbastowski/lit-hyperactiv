@@ -6,7 +6,8 @@
     "scripts": {
         "start": "serve",
         "build": "echo \"no build required\"",
-        "install-packages-locally": "npm i lit-html hyperactiv easyrouter"
+        "install-packages-locally": "npm i lit-html hyperactiv easyrouter",
+        "local-db": "json-server --watch db/db.json --routes db/routes.json --port 3030"
     },
     "keywords": [],
     "author": "Paul Bastowski",
