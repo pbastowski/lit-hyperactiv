@@ -4,12 +4,27 @@
     "description": "This is a static template with no bundling. Use 'serve', 'live-server' or some other http server to serve the content.",
     "main": "index.html",
     "scripts": {
-        "start": "serve",
-        "build": "echo \"no build required\"",
-        "install-packages-locally": "npm i lit-html hyperactiv easyrouter",
+        "start": "parcel serve index.html",
+        "build": "parcel build index.html",
         "local-db": "json-server --watch db/db.json --routes db/routes.json --port 3030"
     },
     "keywords": [],
     "author": "Paul Bastowski",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "@mdi/font": "5.1.45",
+        "bootstrap": "4.4.1",
+        "easyrouter": "2.0.2",
+        "hyperactiv": "0.8.2",
+        "lit-html": "1.2.1"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-preset-env": "^1.7.0",
+        "cssnano": "^4.1.10",
+        "sass": "^1.26.5"
+    },
+    "browserslist": [
+        "last 2 Chrome versions"
+    ]
 }

@@ -12,10 +12,10 @@ export default () => html`
         </span>
         <span>
             ${store.activeTaskCount() &&
-                html`
-                    ${store.activeTaskCount()}
-                    <i style="color: red;" class="mdi mdi-bell-outline"></i>
-                `}
+            html`
+                ${store.activeTaskCount()}
+                <i style="color: red;" class="mdi mdi-bell-outline"></i>
+            `}
         </span>
     </div>
 `
