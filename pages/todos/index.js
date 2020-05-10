@@ -1,6 +1,6 @@
 import '@mdi/font/css/materialdesignicons.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '/src/index.scss'
+import '/src/index.css'
 
 import { render, computed } from '/src/libs.js'
 import App from './App.js'
