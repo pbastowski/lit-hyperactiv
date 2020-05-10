@@ -27,9 +27,9 @@ const store = observe(
             // const oldTasks = this.tasks
             this.tasks = [task, ...this.tasks]
             api.addTask({ title, done: false })
-                .then(t => (task.id = t.id))
+                .then((t) => (task.id = t.id))
                 .catch(() => {
-                    this.tasks = this.tasks.filter(t => t.id !== 10000)
+                    this.tasks = this.tasks.filter((t) => t.id !== 10000)
                 })
         },
 
@@ -39,8 +39,8 @@ const store = observe(
 
         deleteTask(task) {
             const tasks = this.tasks
-            this.tasks = this.tasks.filter(t => t.id !== task.id)
-            api.deleteTask(task).catch(er => {
+            this.tasks = this.tasks.filter((t) => t.id !== task.id)
+            api.deleteTask(task).catch((er) => {
                 console.log(er, ". Can't delete right now")
                 this.tasks = tasks
             })
@@ -55,8 +55,8 @@ const store = observe(
 
             // For speed always replace the existing object with a new copy
             const tasks = JSON.parse(JSON.stringify(this.tasks))
-            this.filteredTasks.forEach(i => {
-                tasks.find(t => t.id === i.id).done = done
+            this.filteredTasks.forEach((i) => {
+                tasks.find((t) => t.id === i.id).done = done
             })
 
             console.timeEnd('± selectAll')
@@ -64,19 +64,19 @@ const store = observe(
         },
 
         get filteredTasks() {
-            console.time('± filteredTasks')
-            const tasks = this.tasks.filter(t =>
+            // console.time('± filteredTasks')
+            const tasks = this.tasks.filter((t) =>
                 this.show === 'active' ? !t.done : this.show === 'done' ? t.done : true
             )
-            console.timeEnd('± filteredTasks')
+            // console.timeEnd('± filteredTasks')
             return tasks
         },
         set filteredTasks(v) {
-            console.log('!!!', v)
+            // console.log('!!!', v)
         },
 
         activeTaskCount() {
-            return this.tasks.filter(t => !t.done).length
+            return this.tasks.filter((t) => !t.done).length
         },
 
         nextId() {
