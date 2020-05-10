@@ -7,10 +7,12 @@ import TaskList from './TaskList.js'
 
 import store from './todo-store.js'
 
-const NewTask = new newTask()
-const NewTask2 = () => {} //new newTask()
-
 const newTasks = observe([])
+
+const addNewTask = () =>
+    newTasks.push(new newTask()({ addTask: (v) => store.addTask(v) }))
+
+addNewTask()
 
 export default () => html`
     ${Header()}
@@ -18,22 +20,16 @@ export default () => html`
     ${Title()}
     <!-- -->
 
-    ${NewTask({ addTask: v => store.addTask(v) })}
-    ${NewTask2({ addTask: v => store.addTask(v) })}
-
-    <!-- -->
     ${newTasks}
 
-    <button
-        @click=${() => newTasks.push(new newTask()({ addTask: v => store.addTask(v) }))}
-    >
+    <button @click=${addNewTask}>
         Another NewTask
     </button>
     <hr />
 
     <!-- -->
     <div style="background: #eee; padding: 4px 6px 0px; margin-bottom: 10px; ">
-        ${Filters({ selectAll: v => store.selectAll(v) })}
+        ${Filters({ selectAll: (v) => store.selectAll(v) })}
     </div>
 
     <!-- Task List-->
